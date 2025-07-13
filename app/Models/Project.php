@@ -11,4 +11,11 @@ class Project extends Model
     public function user(){
         $this->belongsTo(User::class);
     }
+
+    protected static function booted()
+    {
+        static::creating(function (Project $project) {
+            $project->user_id = auth()->id();
+        });
+    }
 }
