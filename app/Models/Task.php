@@ -8,7 +8,7 @@ use App\FilterByUser;
 
 class Task extends Model
 {
-    use FilterByUser;
+    // use FilterByUser;
     protected $guarded = ['id'];
 
     public function project()
