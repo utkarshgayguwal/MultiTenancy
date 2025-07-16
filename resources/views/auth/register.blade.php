@@ -16,6 +16,13 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
+        <!-- SubDomain -->
+        <div class="mt-4">
+            <x-input-label for="subdomain" :value="__('Subdomain')" />
+            <x-text-input id="subdomain" class="block mt-1 w-full" type="text" name="subdomain" :value="old('subdomain')" required autocomplete="username" />
+            <x-input-error :messages="$errors->get('subdomain')" class="mt-2" />
+        </div>
+
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />
