@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\FilterByTenant;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use App\FilterByUser;
 
 class Task extends Model
 {
-    // use FilterByUser;
+    use FilterByTenant;
     protected $guarded = ['id'];
 
     public function project()

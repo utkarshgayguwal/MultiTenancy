@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\FilterByTenant;
 use Illuminate\Database\Eloquent\Model; 
 use Illuminate\Database\Eloquent\Observers\ObservedBy; 
 use App\Observers\ProjectObserver; 
@@ -11,7 +12,7 @@ use App\FilterByUser;
 // #[ObservedBy(ProjectObserver::class)]
 class Project extends Model
 {
-    // use FilterByUser;
+    use FilterByTenant;
     protected $guarded = ['id'];
 
     public function user(){
