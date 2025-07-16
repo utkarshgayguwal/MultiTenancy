@@ -25,13 +25,13 @@ trait FilterByTenant
         static::creating(function (Model $model) {
             if (auth()->check()) {
                 $model->user_id = auth()->id();
-                $model->tenant_id = auth()->user()->tenants->first()?->id;
+                $model->tenant_id = auth()->user()->current_tenant_id;
             }
         });
 
         static::addGlobalScope('tenant', function (Builder $builder) {
             if (auth()->check()) {
-                $tenantId = auth()->user()->tenants->first()?->id;
+                $tenantId = auth()->user()->current_tenant_id;
                 if ($tenantId) {
                     $builder->where('tenant_id', $tenantId);
                 }

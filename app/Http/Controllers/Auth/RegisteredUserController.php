@@ -44,6 +44,7 @@ class RegisteredUserController extends Controller
 
         $tenant = Tenant::create(['name' => $request->name . ' Teams']);
         $tenant->users()->attach($user->id);
+        $user->update(['current_tenant_id' => $tenant->id]);
 
         event(new Registered($user));
 
